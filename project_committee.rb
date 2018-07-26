@@ -47,9 +47,14 @@ project = {
 
 project[:steps][0][:person] = project[:committee][1]
 
-
+count = 0
 project[:steps].each do |member|
-  member[:person] = project[:committee][0, 1, 2]
+  member[:person] = project[:committee][count]
+  count += 1
+  if count >= 3
+    count = 0
+  end
+
 end
 
 
